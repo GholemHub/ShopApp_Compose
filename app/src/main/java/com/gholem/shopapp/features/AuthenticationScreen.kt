@@ -1,9 +1,7 @@
 package com.gholem.shopapp.features
 
-import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -46,14 +44,13 @@ fun AuthenticationScrean(
         ButtonToRegister(onClick = {
             navController.navigate(route = ScreenNavigation.Registration.route)
         })
-
     }
 }
 
 @Composable
 fun ButtonToRegister(onClick: () -> Unit) {
     Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.fillMaxWidth()) {
-        Text(text = "Haven't an account?")
+        Text(text = "Haven't an account? ")
         Text(
             "Sign Up",
             color = MaterialTheme.colors.primary,
@@ -115,9 +112,6 @@ fun PasswordTextField() {
             keyboardType = KeyboardType.Password,
             imeAction = ImeAction.Go
         ),
-        keyboardActions = KeyboardActions(onGo = {
-            Log.d("qwe3", "!@#")
-        })
     )
 }
 
@@ -141,9 +135,6 @@ fun EmailTextField() {
             keyboardType = KeyboardType.Email,
             imeAction = ImeAction.Go
         ),
-        keyboardActions = KeyboardActions(onGo = {
-            Log.d("qwe3", "!@#")
-        })
     )
 }
 
@@ -152,6 +143,5 @@ fun EmailTextField() {
 fun AuthenticationScreenPreview() {
     ShopAppTheme {
         AuthenticationScrean(navController = rememberNavController())
-
     }
 }

@@ -78,9 +78,6 @@ fun PhoneTextField() {
             keyboardType = KeyboardType.Password,
             imeAction = ImeAction.Go
         ),
-        keyboardActions = KeyboardActions(onGo = {
-            Log.d("qwe3", "!@#")
-        })
     )
 }
 
