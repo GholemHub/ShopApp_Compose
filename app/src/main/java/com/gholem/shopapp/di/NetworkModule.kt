@@ -1,5 +1,8 @@
 package com.gholem.shopapp.di
 
+import com.gholem.shopapp.repository.network.ProductRepository
+import com.gholem.shopapp.repository.network.api.ProductApi
+import com.gholem.shopapp.repository.network.real.ProductNetworkRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,4 +38,14 @@ object NetworkModule {
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BASE_URL)
             .build()
+
+    @Singleton
+    @Provides
+    fun provideProductRepository(
+        productApi: ProductApi,
+    ): ProductRepository {
+        return ProductNetworkRepository(
+            productApi
+        )
+    }
 }
