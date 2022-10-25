@@ -4,6 +4,8 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.gholem.shopapp.domain.model.ProductModel
+import com.gholem.shopapp.domain.model.ProductModelData
 import com.gholem.shopapp.presentation.ui.market.domain.FetchProductModelUseCase
 import com.gholem.shopapp.repository.network.DataState
 import com.gholem.shopapp.repository.network.dto.product.ProductResponse
@@ -24,7 +26,7 @@ class MarketViewModel @Inject constructor(
     private val getProductListUseCase: FetchProductModelUseCase
 ) : ViewModel() {
 
-    var genres: MutableState<DataState<ProductResponse>?> = mutableStateOf(null)
+    var genres: MutableState<DataState<ProductModelData>?> = mutableStateOf(null)
 
     fun genreList() {
         viewModelScope.launch {

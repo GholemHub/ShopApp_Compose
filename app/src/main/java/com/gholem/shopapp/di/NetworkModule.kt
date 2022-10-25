@@ -17,7 +17,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    private const val BASE_URL = "https://api.coincap.io"
+    private const val BASE_URL = "https://fakestoreapi.com/products"
 
     @Singleton
     @Provides
