@@ -10,6 +10,7 @@
     <dimen name="btn_horizontal_padding">1dp</dimen>
 
     <dimen name="header_text_font_size_first">32sp</dimen>
+    <dimen name="price_text_font_size_first">20sp</dimen>
     <dimen name="header_text_font_size_second">26sp</dimen>
 
 </resources>

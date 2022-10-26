@@ -4,5 +4,5 @@ import com.gholem.shopapp.domain.model.ProductModelData
 import kotlinx.coroutines.flow.Flow
 
 interface ProductRepository {
-    suspend fun genreList(): Flow<DataState<ProductModelData>>
+    suspend fun fetchListOfProductsFromAPI(): Flow<DataState<ProductModelData>>
 }

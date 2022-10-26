@@ -14,12 +14,12 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var navController: NavHostController
-    private val splashViewModel: MainActivityViewModel by viewModels()
+    private val viewModel: MainActivityViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         installSplashScreen().apply {
-            setKeepOnScreenCondition { splashViewModel.isLoading.value }
+            setKeepOnScreenCondition { viewModel.isLoading.value }
         }
         setContent {
             ShopAppTheme() {

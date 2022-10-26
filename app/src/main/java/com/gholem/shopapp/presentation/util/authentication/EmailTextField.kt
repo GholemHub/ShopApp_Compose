@@ -1,4 +1,4 @@
-package com.gholem.shopapp.presentation.util
+package com.gholem.shopapp.presentation.util.authentication
 
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Icon

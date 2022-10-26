@@ -1,4 +1,4 @@
-package com.gholem.shopapp.presentation.features
+package com.gholem.shopapp.presentation.util.authentication
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
@@ -10,7 +10,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.gholem.shopapp.R
 import com.gholem.shopapp.arch.nav.ScreenNavigation
-import com.gholem.shopapp.presentation.util.*
 
 @Preview
 @Composable

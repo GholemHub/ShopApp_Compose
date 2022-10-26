@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.gholem.shopapp.presentation.features.AuthenticationScrean
 import com.gholem.shopapp.presentation.features.RegistrationScreen
 import com.gholem.shopapp.presentation.ui.market.MarketScreen
+import com.gholem.shopapp.presentation.util.authentication.AuthenticationScrean
 
 @Composable
 fun SetupNavGraph(
