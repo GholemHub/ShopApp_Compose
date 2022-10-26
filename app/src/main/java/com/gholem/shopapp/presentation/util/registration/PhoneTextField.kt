@@ -1,4 +1,4 @@
-package com.gholem.shopapp.presentation.util.registeration
+package com.gholem.shopapp.presentation.util.registration
 
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Icon
@@ -10,7 +10,6 @@ import androidx.compose.material.icons.filled.Phone
 import androidx.compose.runtime.*
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-
 
 @Composable
 fun PhoneTextField() {

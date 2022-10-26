@@ -1,4 +1,4 @@
-package com.gholem.shopapp.presentation.util.registeration
+package com.gholem.shopapp.presentation.util.registration
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height

@@ -9,9 +9,9 @@ import androidx.navigation.NavHostController
 import com.gholem.shopapp.R
 import com.gholem.shopapp.presentation.util.authentication.EmailTextField
 import com.gholem.shopapp.presentation.util.authentication.PasswordTextField
-import com.gholem.shopapp.presentation.util.registeration.ButtonRegister
-import com.gholem.shopapp.presentation.util.registeration.PhoneTextField
-import com.gholem.shopapp.presentation.util.registeration.RegistrationHeaderText
+import com.gholem.shopapp.presentation.util.registration.ButtonRegister
+import com.gholem.shopapp.presentation.util.registration.PhoneTextField
+import com.gholem.shopapp.presentation.util.registration.RegistrationHeaderText
 
 @Composable
 fun RegistrationScreen(navController: NavHostController) {

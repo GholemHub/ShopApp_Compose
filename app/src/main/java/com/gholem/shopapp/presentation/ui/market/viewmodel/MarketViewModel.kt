@@ -23,7 +23,7 @@ class MarketViewModel @Inject constructor(
     private val getProductListUseCase: FetchProductModelUseCase
 ) : ViewModel() {
 
-    var genres: MutableState<DataState<ProductModelData>?> = mutableStateOf(DataState.Loading)
+    var genres: MutableState<DataState<ProductModelData>> = mutableStateOf(DataState.Loading)
 
     fun genreList() {
         viewModelScope.launch {

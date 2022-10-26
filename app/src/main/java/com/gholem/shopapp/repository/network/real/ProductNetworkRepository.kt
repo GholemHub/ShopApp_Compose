@@ -11,14 +11,22 @@ import javax.inject.Inject
 
 class ProductNetworkRepository @Inject constructor(
     private val productApi: ProductApi,
-    ) : ProductRepository {
+) : ProductRepository {
 
-    override suspend fun fetchListOfProductsFromAPI(): Flow<DataState<ProductModelData>> = flow {
+    override suspend fun fetchListOfProducts(): Flow<DataState<ProductModelData>> = flow {
         emit(DataState.Loading)
         try {
             val listOfProductsFromAPI = productApi.getProductsFromAPI()
             val toModel =
-                ProductModelData(listOfProductsFromAPI.map{ ProductModel(it.id, it.title,it.image, it.price, it.category) })
+                ProductModelData(listOfProductsFromAPI.map {
+                    ProductModel(
+                        it.id,
+                        it.title,
+                        it.image,
+                        it.price,
+                        it.category
+                    )
+                })
             emit(DataState.Success(toModel))
 
         } catch (e: Exception) {
