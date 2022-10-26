@@ -1,5 +1,6 @@
 package com.gholem.shopapp.presentation.main
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
