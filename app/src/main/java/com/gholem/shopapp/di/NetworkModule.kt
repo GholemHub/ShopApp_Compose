@@ -1,5 +1,8 @@
 package com.gholem.shopapp.di
 
+import com.gholem.shopapp.repository.network.ProductRepository
+import com.gholem.shopapp.repository.network.api.ProductApi
+import com.gholem.shopapp.repository.network.real.ProductNetworkRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +17,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    private const val BASE_URL = "https://api.coincap.io"
+    private const val BASE_URL = "https://fakestoreapi.com"
 
     @Singleton
     @Provides
@@ -35,4 +38,14 @@ object NetworkModule {
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BASE_URL)
             .build()
+
+    @Singleton
+    @Provides
+    fun provideProductRepository(
+        productApi: ProductApi,
+    ): ProductRepository {
+        return ProductNetworkRepository(
+            productApi
+        )
+    }
 }
