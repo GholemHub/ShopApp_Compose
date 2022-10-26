@@ -7,3 +7,4 @@ data class ProductModel (
 data class ProductModelData(
     val list: List<ProductModel>
 )
+

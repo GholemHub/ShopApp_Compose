@@ -4,12 +4,9 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.gholem.shopapp.domain.model.ProductModel
 import com.gholem.shopapp.domain.model.ProductModelData
 import com.gholem.shopapp.presentation.ui.market.domain.FetchProductModelUseCase
 import com.gholem.shopapp.repository.network.DataState
-import com.gholem.shopapp.repository.network.dto.product.ProductResponse
-import com.gholem.shopapp.repository.network.real.ProductNetworkRepository
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent

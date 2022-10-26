@@ -7,6 +7,7 @@ import com.gholem.shopapp.repository.network.ProductRepository
 import com.gholem.shopapp.repository.network.api.ProductApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import timber.log.Timber.i
 import javax.inject.Inject
 
 class ProductNetworkRepository @Inject constructor(
@@ -18,8 +19,9 @@ class ProductNetworkRepository @Inject constructor(
         emit(DataState.Loading)
         try {
             val genreResult = productApi.getExchanges()
+            i("genreResult @@ ${genreResult}")
             val toModel =
-                ProductModelData(genreResult.data.map { ProductModel(it.name, it.rank.toInt()) })
+                ProductModelData(genreResult.map{ ProductModel(it.title,it.id) })
             emit(DataState.Success(toModel))
 
         } catch (e: Exception) {
