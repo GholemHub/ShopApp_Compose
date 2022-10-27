@@ -45,11 +45,6 @@ class MainActivity : AppCompatActivity() {
             ShopAppTheme {
                 val scaffoldState = rememberScaffoldState()
                 val scope = rememberCoroutineScope()
-
-                navController = rememberNavController()
-                SetupNavGraph(navController)
-
-
                 Scaffold(
                     scaffoldState = scaffoldState,
                     topBar = {
@@ -57,7 +52,6 @@ class MainActivity : AppCompatActivity() {
                             scope.launch { scaffoldState.drawerState.open() }
                         })
                     },
-                    //drawerGesturesEnabled = scaffoldState.drawerState.isOpen,
                     drawerContent = {
                         DrawerHeader()
                         DrawerBody(
@@ -88,11 +82,10 @@ class MainActivity : AppCompatActivity() {
                             }
                         )
                     }
-
                 ) {
-
+                    navController = rememberNavController()
+                    SetupNavGraph(navController)
                 }
-//
             }
         }
     }

@@ -19,7 +19,7 @@ import javax.inject.Inject
 @Module
 @InstallIn(ViewModelComponent::class)
 @HiltViewModel
-class MarketViewModel @Inject constructor(
+class ProductInfoViewModel @Inject constructor(
     private val getProductListUseCase: FetchProductModelUseCase
 ) : ViewModel() {
 

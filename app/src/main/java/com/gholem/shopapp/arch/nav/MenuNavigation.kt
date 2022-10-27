@@ -10,7 +10,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gholem.shopapp.R
 
@@ -19,8 +18,8 @@ fun DrawerHeader() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 64.dp),
-        ) {
+            .padding(vertical = dimensionResource(id = R.dimen.header_menu_text)),
+    ) {
         Text(text = "Header", fontSize = dimensionResource(R.dimen.header_menu_text).value.sp)
     }
 }
@@ -53,4 +52,3 @@ fun DrawerBody(
         }
     }
 }
-

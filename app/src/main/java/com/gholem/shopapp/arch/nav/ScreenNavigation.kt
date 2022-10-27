@@ -6,4 +6,9 @@ sealed class ScreenNavigation(val route: String){
     object Market: ScreenNavigation(route = "market_screen")
     object Settings: ScreenNavigation(route = "settings_screen")
     object Basket: ScreenNavigation(route = "basket_screen")
+    object ProductInfo: ScreenNavigation(route = "product_info_screen/{id}"){
+        fun passId(id: Int): String{
+            return "product_info_screen/$id"
+        }
+    }
 }

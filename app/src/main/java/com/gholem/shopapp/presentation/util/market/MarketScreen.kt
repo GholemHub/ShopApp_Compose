@@ -6,25 +6,25 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import com.gholem.shopapp.domain.model.ProductModelData
 import com.gholem.shopapp.presentation.ui.market.viewmodel.MarketViewModel
 import com.gholem.shopapp.presentation.util.market.MarketItem
 import com.gholem.shopapp.repository.network.DataState
-import timber.log.Timber.i
 
 @Composable
-fun MarketScreen() {
+fun MarketScreen(navController: NavHostController) {
     val viewModel = hiltViewModel<MarketViewModel>()
-    val genres = viewModel.genres.value
+    val dataStateProductList = viewModel.dataStateProductList.value
     LaunchedEffect(true) {
         viewModel.genreList()
     }
 
     LazyColumn(modifier = Modifier.fillMaxSize()) {
-        if (genres is DataState.Success<ProductModelData>) {
+        if (dataStateProductList is DataState.Success<ProductModelData>) {
             item {
-                genres.data.list.map {
-                    MarketItem(it)
+                dataStateProductList.data.list.map {
+                    MarketItem(it, navController)
                 }
             }
         }
