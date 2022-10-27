@@ -12,7 +12,7 @@ import com.gholem.shopapp.presentation.theme.Shapes
 @Composable
 fun ButtonLogin(onClick: () -> Unit) {
     Button(
-        onClick = { /*TODO*/ },
+        onClick = onClick,
         contentPadding = PaddingValues(
             vertical = dimensionResource(R.dimen.btn_vertical_padding),
             horizontal = dimensionResource(R.dimen.btn_horizontal_padding)

@@ -34,11 +34,11 @@ fun AuthenticationScrean(
         PasswordTextField()
         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.spacer_password_to_btn_login)))
         ButtonLogin(onClick = {
-            navController.navigate(route = ScreenNavigation.Registration.route)
+            navController.navigate(route = ScreenNavigation.Market.route)
         })
         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.spacer_default)))
         ButtonToRegister(onClick = {
-            navController.navigate(route = ScreenNavigation.Market.route)
+            navController.navigate(route = ScreenNavigation.Registration.route)
         })
     }
 }

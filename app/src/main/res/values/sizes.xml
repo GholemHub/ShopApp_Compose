@@ -8,8 +8,12 @@
     <dimen name="spacer_header_text">2dp</dimen>
     <dimen name="btn_vertical_padding">16dp</dimen>
     <dimen name="btn_horizontal_padding">1dp</dimen>
+    <dimen name="padding_image">3dp</dimen>
+    <dimen name="size_rounded_photo">50dp</dimen>
 
     <dimen name="header_text_font_size_first">32sp</dimen>
+    <dimen name="menu_text">16sp</dimen>
+    <dimen name="header_menu_text">60sp</dimen>
     <dimen name="price_text_font_size_first">20sp</dimen>
     <dimen name="header_text_font_size_second">26sp</dimen>
 

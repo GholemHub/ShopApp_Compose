@@ -41,15 +41,14 @@ fun MarketItem(productModel: ProductModel) {
 
             Row {
                 RoundImage(
-                    productModel.image,
-                    Modifier
-                        .size(50.dp)
+                    productModel.image, Modifier.size(dimensionResource(R.dimen.size_rounded_photo))
                 )
-                Text(text = productModel.name)
+                Text(text = productModel.name, color = Color.Black)
             }
             Text(
                 text = "Category: ${productModel.category}",
-                modifier = Modifier.padding(start = dimensionResource(R.dimen.default_padding))
+                modifier = Modifier.padding(start = dimensionResource(R.dimen.default_padding)),
+                color = Color.Black
             )
             Text(
                 text = "\$: ${productModel.price}",
@@ -65,17 +64,16 @@ fun MarketItem(productModel: ProductModel) {
             contentDescription = null,
             modifier = Modifier
                 .weight(1f)
-                .size(128.dp)
+                .size(dimensionResource(R.dimen.spacer_header_to_email))
                 .background(Color.White)
-                .border(BorderStroke(1.dp, Color.Black)),
+                .border(BorderStroke(dimensionResource(R.dimen.btn_horizontal_padding), Color.Black)),
         )
     }
 }
 
 @Composable
 fun RoundImage(
-    image: String,
-    modifier: Modifier = Modifier
+    image: String, modifier: Modifier = Modifier
 ) {
     Image(
         painter = rememberAsyncImagePainter(image),
@@ -83,11 +81,10 @@ fun RoundImage(
         modifier = modifier
             .aspectRatio(1f, matchHeightConstraintsFirst = true)
             .border(
-                width = 1.dp,
-                color = Color.LightGray,
-                shape = CircleShape
+                width = dimensionResource(R.dimen.padding_image), color = Color.LightGray, shape = CircleShape
             )
-            .padding(3.dp)
+
+            .padding(dimensionResource(R.dimen.btn_horizontal_padding))
             .clip(CircleShape)
     )
 }
