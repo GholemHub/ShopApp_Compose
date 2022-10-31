@@ -5,7 +5,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.gholem.shopapp.repository.storage.entity.BasketEntity
-import com.gholem.shopapp.repository.storage.entity.TemplateEntity
 
 @Dao
 interface BasketDao {
@@ -15,4 +14,7 @@ interface BasketDao {
 
     @Query("SELECT * FROM basket_table")
     suspend fun getAll(): List<BasketEntity>
+
+    @Query("DELETE FROM basket_table WHERE id = :id")
+    suspend fun delete(id: Int)
 }

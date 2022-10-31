@@ -26,8 +26,10 @@ fun ProductInfoScreen(id: Int) {
     val viewModel = hiltViewModel<ProductInfoViewModel>()
     var productModel: ProductModel
     val dataStateProductList = viewModel.dataStateProductList.value
+    val dataBasketList = viewModel.dataBasketList
     LaunchedEffect(true) {
         viewModel.generateList()
+        viewModel.getBasketList()
     }
 
     if (dataStateProductList is DataState.Success<ProductModelData>) {
@@ -77,10 +79,17 @@ fun ProductInfoScreen(id: Int) {
                     color = Color.Black
                 )
 
-                var selected by remember { mutableStateOf(false) }
+                fun checkIfInBasket(productModel: ProductModel): Boolean {
+                    if (dataBasketList.firstOrNull { it.id == productModel.id } != null) {
+                        return true
+                    }
+                    return false
+                }
+
+                var selected by remember { mutableStateOf(checkIfInBasket(productModel)) }
                 val color =
-                    if (selected) painterResource(id = R.drawable.ic_baseline_shopping_basket_24) else painterResource(
-                        id = R.drawable.ic_baseline_shopping_cart_24
+                    if (selected) painterResource(id = R.drawable.ic_baseline_remove_shopping_cart_24) else painterResource(
+                        id = R.drawable.ic_baseline_add_shopping_cart_24
                     )
 
                 Image(
@@ -96,8 +105,13 @@ fun ProductInfoScreen(id: Int) {
                             )
                         )
                         .clickable(onClick = {
-                            selected = !selected
-                            viewModel.addProductToBasket(productModel)
+                            if (!selected) {
+                                selected = !selected
+                                viewModel.addProductToBasket(productModel)
+                            } else {
+                                viewModel.deleteProductFromBasket(productModel.id)
+                                selected = !selected
+                            }
                         }),
                 )
             }

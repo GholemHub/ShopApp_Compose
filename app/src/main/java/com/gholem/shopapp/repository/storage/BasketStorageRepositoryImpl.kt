@@ -17,4 +17,8 @@ class BasketStorageRepositoryImpl @Inject constructor(
 
         return basketProducts.map { it.toModel() }
     }
+
+    override suspend fun deleteItem(item: Int) {
+        basketDao.delete(item)
+    }
 }

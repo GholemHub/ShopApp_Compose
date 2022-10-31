@@ -19,12 +19,12 @@ class BasketViewModel @Inject constructor(
     private var getBasketListUseCase: GetBasketListUseCase
 ) : ViewModel() {
 
-    var dataStateBasketList1 = mutableListOf<ProductModel>()
+    var dataBasketList = mutableListOf<ProductModel>()
 
     fun generateList() {
         viewModelScope.launch {
             getBasketListUseCase.run(Unit).onEach {
-                dataStateBasketList1.add(it)
+                dataBasketList.add(it)
             }
         }
     }
