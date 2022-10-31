@@ -27,11 +27,10 @@ fun DrawerHeader() {
 @Composable
 fun DrawerBody(
     items: List<MenuItem>,
-    modifier: Modifier = Modifier,
     itemTextStyle: TextStyle = TextStyle(fontSize = dimensionResource(R.dimen.menu_text).value.sp),
     onItemClick: (MenuItem) -> Unit
 ) {
-    LazyColumn(modifier) {
+    LazyColumn() {
         items(items) { item ->
             Row(
                 modifier = Modifier

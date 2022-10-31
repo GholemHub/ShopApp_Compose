@@ -1,4 +1,4 @@
-package com.gholem.shopapp.presentation.ui.market.viewmodel
+package com.gholem.shopapp.presentation.ui.market
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -19,11 +19,12 @@ import javax.inject.Inject
 @Module
 @InstallIn(ViewModelComponent::class)
 @HiltViewModel
-class ProductInfoViewModel @Inject constructor(
+class MarketViewModel @Inject constructor(
     private val getProductListUseCase: FetchProductModelUseCase
 ) : ViewModel() {
 
-    var dataStateProductList: MutableState<DataState<ProductModelData>> = mutableStateOf(DataState.Loading)
+    var dataStateProductList: MutableState<DataState<ProductModelData>> =
+        mutableStateOf(DataState.Loading)
 
     fun genreList() {
         viewModelScope.launch {

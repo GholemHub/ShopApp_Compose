@@ -11,6 +11,6 @@ class FetchProductModelUseCase @Inject constructor(
     private val productApiRepository: ProductRepository
 ) : UseCase<Unit, Flow<DataState<ProductModelData>>> {
 
-    override suspend fun run(input: Unit): Flow<DataState<ProductModelData>> = productApiRepository.fetchListOfProducts()
+    override suspend fun run(input: Unit): Flow<DataState<ProductModelData>> =
+        productApiRepository.fetchListOfProducts()
 }
-

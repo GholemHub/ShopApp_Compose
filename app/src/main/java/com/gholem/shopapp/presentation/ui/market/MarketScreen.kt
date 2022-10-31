@@ -8,7 +8,6 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.gholem.shopapp.domain.model.ProductModelData
-import com.gholem.shopapp.presentation.ui.market.viewmodel.MarketViewModel
 import com.gholem.shopapp.presentation.util.market.MarketItem
 import com.gholem.shopapp.repository.network.DataState
 

@@ -38,14 +38,14 @@ fun SetupNavGraph(
         }
 
         composable(route = ScreenNavigation.Basket.route) {
-            BasketScreen()
+            BasketScreen(navController)
         }
         composable(route = ScreenNavigation.Settings.route) {
             SettingsScreen()
         }
         composable(
             route = ScreenNavigation.ProductInfo.route,
-            arguments = listOf(navArgument("id"){
+            arguments = listOf(navArgument("id") {
                 type = NavType.IntType
             })
         ) {

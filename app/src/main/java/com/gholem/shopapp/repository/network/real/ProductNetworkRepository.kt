@@ -25,7 +25,7 @@ class ProductNetworkRepository @Inject constructor(
                         it.image,
                         it.price,
                         it.category,
-                        it.description
+                        it.description,
                     )
                 })
             emit(DataState.Success(toModel))

@@ -3,11 +3,12 @@ package com.gholem.shopapp.presentation.util.market.product
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -15,7 +16,7 @@ import coil.compose.rememberAsyncImagePainter
 import com.gholem.shopapp.R
 import com.gholem.shopapp.domain.model.ProductModel
 import com.gholem.shopapp.domain.model.ProductModelData
-import com.gholem.shopapp.presentation.ui.market.viewmodel.ProductInfoViewModel
+import com.gholem.shopapp.presentation.ui.product.ProductInfoViewModel
 import com.gholem.shopapp.presentation.util.market.RoundImage
 import com.gholem.shopapp.repository.network.DataState
 
@@ -26,7 +27,7 @@ fun ProductInfoScreen(id: Int) {
     var productModel: ProductModel
     val dataStateProductList = viewModel.dataStateProductList.value
     LaunchedEffect(true) {
-        viewModel.genreList()
+        viewModel.generateList()
     }
 
     if (dataStateProductList is DataState.Success<ProductModelData>) {
@@ -74,6 +75,30 @@ fun ProductInfoScreen(id: Int) {
                     text = "Description: ${productModel.description}",
                     modifier = Modifier.padding(start = dimensionResource(R.dimen.default_padding)),
                     color = Color.Black
+                )
+
+                var selected by remember { mutableStateOf(false) }
+                val color =
+                    if (selected) painterResource(id = R.drawable.ic_baseline_shopping_basket_24) else painterResource(
+                        id = R.drawable.ic_baseline_shopping_cart_24
+                    )
+
+                Image(
+                    painter = color,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(dimensionResource(R.dimen.size_rounded_photo))
+                        .align(CenterHorizontally)
+                        .border(
+                            BorderStroke(
+                                dimensionResource(R.dimen.btn_horizontal_padding),
+                                Color.Black
+                            )
+                        )
+                        .clickable(onClick = {
+                            selected = !selected
+                            viewModel.addProductToBasket(productModel)
+                        }),
                 )
             }
 
