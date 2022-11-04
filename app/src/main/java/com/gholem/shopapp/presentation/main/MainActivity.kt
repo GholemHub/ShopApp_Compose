@@ -15,12 +15,17 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.gholem.shopapp.R
 import com.gholem.shopapp.arch.nav.*
+import com.gholem.shopapp.domain.model.ProductModel
 import com.gholem.shopapp.presentation.theme.ShopAppTheme
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import timber.log.Timber.i
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
     lateinit var navController: NavHostController
     private val viewModel: MainActivityViewModel by viewModels()
 
@@ -30,6 +35,33 @@ class MainActivity : AppCompatActivity() {
         if (supportActionBar != null) {
             supportActionBar!!.hide()
         }
+
+        var fStore = FirebaseFirestore.getInstance()
+
+        fStore.collection("product")
+            .get()
+            .addOnSuccessListener {
+                i("@@${it}")
+            }
+            .addOnFailureListener {
+                it.printStackTrace()
+            }
+
+        val list = ArrayList<ProductModel>()
+        var ref = fStore.collection("products")
+        ref.get()
+            .addOnSuccessListener {
+                if (it.isEmpty) {
+                    i("EMPTY@@${it}")
+                } else {
+                    it.forEach { doc ->
+                        val taskModel = doc.toObject(ProductModel::class.java)
+                        list.add(taskModel)
+                    }
+                    i("@@${list}")
+                }
+            }
+
         installSplashScreen().apply {
             setKeepOnScreenCondition { viewModel.isLoading.value }
         }
@@ -40,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background,
-                    ) {
+                ) {
                     Scaffold(
                         modifier = Modifier,
                         scaffoldState = scaffoldState,

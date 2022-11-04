@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "191590951059",
+    "firebase_url": "https://moneylab2-alex-default-rtdb.firebaseio.com",
+    "project_id": "moneylab2-alex",
+    "storage_bucket": "moneylab2-alex.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191590951059:android:e6137aeb19e89658dec566",
+        "android_client_info": {
+          "package_name": "com.gholem.shopapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191590951059-rdh3tmo9e1q7balnvs0rur1pu1ndg913.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpUXOLQsm-0t8mWj06WA6L83vgdrKavfg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191590951059-rdh3tmo9e1q7balnvs0rur1pu1ndg913.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191590951059:android:afd0af0f9f1592fedec566",
+        "android_client_info": {
+          "package_name": "com.gholem.shopapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191590951059-vk4s8gclju1biq2lev7objss0hlo4hoo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gholem.shopapp",
+            "certificate_hash": "6b30c40c0c86682a4435bf0a73bdbe8f2c67ec25"
+          }
+        },
+        {
+          "client_id": "191590951059-rdh3tmo9e1q7balnvs0rur1pu1ndg913.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpUXOLQsm-0t8mWj06WA6L83vgdrKavfg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191590951059-rdh3tmo9e1q7balnvs0rur1pu1ndg913.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
