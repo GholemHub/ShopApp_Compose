@@ -49,7 +49,6 @@ fun SetupNavGraph(
                 type = NavType.IntType
             })
         ) {
-            i("THE ID @@ ${it.arguments?.getInt("id").toString()}")
             it.arguments?.let { it1 -> ProductInfoScreen(it1.getInt("id")) }
         }
     }

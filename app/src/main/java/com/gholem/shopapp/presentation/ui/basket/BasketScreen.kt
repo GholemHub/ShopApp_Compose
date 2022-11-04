@@ -14,7 +14,7 @@ import com.gholem.shopapp.presentation.ui.basket.BasketViewModel
 fun BasketScreen(navController: NavHostController) {
     val viewModel = hiltViewModel<BasketViewModel>()
 
-    val dataStateBasketList = viewModel.dataBasketList
+    val dataStateBasketList = viewModel.getDataBasketList()
     LaunchedEffect(true) {
         viewModel.generateList()
     }

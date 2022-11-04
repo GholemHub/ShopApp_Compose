@@ -10,6 +10,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
@@ -27,9 +28,8 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (supportActionBar != null) {
-            supportActionBar!!.hide()
-        }
+
+        supportActionBar?.hide()
         installSplashScreen().apply {
             setKeepOnScreenCondition { viewModel.isLoading.value }
         }
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background,
-                    ) {
+                ) {
                     Scaffold(
                         modifier = Modifier,
                         scaffoldState = scaffoldState,
@@ -55,17 +55,17 @@ class MainActivity : AppCompatActivity() {
                                 items = listOf(
                                     MenuItem(
                                         id = "market",
-                                        title = "Market",
+                                        title = stringResource(id = R.string.header),
                                         icon = painterResource(id = R.drawable.ic_baseline_shopping_cart_24)
                                     ),
                                     MenuItem(
                                         id = "settings",
-                                        title = "Settings",
+                                        title =stringResource(id = R.string.settings),
                                         icon = painterResource(id = R.drawable.ic_baseline_settings_24)
                                     ),
                                     MenuItem(
                                         id = "basket",
-                                        title = "Basket",
+                                        title = stringResource(id = R.string.basket),
                                         icon = painterResource(id = R.drawable.ic_baseline_shopping_basket_24)
                                     )
                                 ),

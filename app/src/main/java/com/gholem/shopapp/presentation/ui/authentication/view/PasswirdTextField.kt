@@ -7,6 +7,7 @@ import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import com.gholem.shopapp.R
@@ -18,7 +19,7 @@ fun PasswordTextField() {
     OutlinedTextField(
         value = passwordText,
         onValueChange = { passwordText = it },
-        label = { Text(text = "Password") },
+        label = { Text(text = stringResource(id = R.string.password)) },
         singleLine = true,
         leadingIcon = {
             IconButton(onClick = { /*TODO*/ }) {

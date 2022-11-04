@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
 import com.gholem.shopapp.R
@@ -20,7 +21,7 @@ fun DrawerHeader() {
             .fillMaxWidth()
             .padding(vertical = dimensionResource(id = R.dimen.header_menu_text)),
     ) {
-        Text(text = "Header", fontSize = dimensionResource(R.dimen.header_menu_text).value.sp)
+        Text(text = stringResource(id = R.string.header), fontSize = dimensionResource(R.dimen.header_menu_text).value.sp)
     }
 }
 

@@ -19,7 +19,9 @@ class BasketViewModel @Inject constructor(
     private var getBasketListUseCase: GetBasketListUseCase
 ) : ViewModel() {
 
-    var dataBasketList = mutableListOf<ProductModel>()
+    private val dataBasketList = mutableListOf<ProductModel>()
+
+    fun getDataBasketList() = dataBasketList
 
     fun generateList() {
         viewModelScope.launch {

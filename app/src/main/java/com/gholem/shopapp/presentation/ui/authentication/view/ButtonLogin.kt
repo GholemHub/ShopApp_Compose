@@ -5,6 +5,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import com.gholem.shopapp.R
 import com.gholem.shopapp.presentation.theme.Shapes
 
@@ -19,7 +20,7 @@ fun ButtonLogin(onClick: () -> Unit) {
         ),
         shape = Shapes.large
     ) {
-        Text("Login")
+        Text(stringResource(id = R.string.login))
 
     }
 }

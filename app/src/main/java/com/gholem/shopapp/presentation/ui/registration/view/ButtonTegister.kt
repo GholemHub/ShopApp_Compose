@@ -7,6 +7,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import com.gholem.shopapp.R
 import com.gholem.shopapp.presentation.theme.Shapes
 
@@ -22,6 +23,6 @@ fun ButtonRegister() {
         ),
         shape = Shapes.large
     ) {
-        Text("Register")
+        Text(stringResource(id = R.string.register))
     }
 }
