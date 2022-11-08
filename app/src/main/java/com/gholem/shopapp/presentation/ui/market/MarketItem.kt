@@ -1,9 +1,6 @@
 package com.gholem.shopapp.presentation.util.market
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Text
@@ -11,22 +8,30 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import coil.compose.rememberAsyncImagePainter
 import com.gholem.shopapp.R
+import com.gholem.shopapp.arch.nav.ScreenNavigation
 import com.gholem.shopapp.domain.model.ProductModel
 
 @Composable
-fun MarketItem(productModel: ProductModel) {
-
+fun MarketItem(productModel: ProductModel, navController: NavHostController) {
     Row(
         modifier = Modifier
-            .padding(dimensionResource(R.dimen.default_padding))
+            .padding(
+                start = dimensionResource(R.dimen.default_padding),
+                end = dimensionResource(R.dimen.default_padding),
+                top = dimensionResource(R.dimen.default_padding)
+            )
             .fillMaxSize()
-            .background(Color.LightGray),
+            .background(colorResource(R.color.white_gray))
+            .clickable {
+                navController.navigate(route = ScreenNavigation.ProductInfo.passId(productModel.id))
+            },
 
         horizontalArrangement = Arrangement.End,
     ) {
@@ -41,15 +46,14 @@ fun MarketItem(productModel: ProductModel) {
 
             Row {
                 RoundImage(
-                    productModel.image,
-                    Modifier
-                        .size(50.dp)
+                    productModel.image, Modifier.size(dimensionResource(R.dimen.size_rounded_photo))
                 )
-                Text(text = productModel.name)
+                Text(text = productModel.name, color = Color.Black)
             }
             Text(
                 text = "Category: ${productModel.category}",
-                modifier = Modifier.padding(start = dimensionResource(R.dimen.default_padding))
+                modifier = Modifier.padding(start = dimensionResource(R.dimen.default_padding)),
+                color = Color.Black
             )
             Text(
                 text = "\$: ${productModel.price}",
@@ -59,23 +63,26 @@ fun MarketItem(productModel: ProductModel) {
                 color = Color.Blue
             )
         }
-
         Image(
             painter = rememberAsyncImagePainter(productModel.image),
             contentDescription = null,
             modifier = Modifier
                 .weight(1f)
-                .size(128.dp)
+                .size(dimensionResource(R.dimen.spacer_header_to_email))
                 .background(Color.White)
-                .border(BorderStroke(1.dp, Color.Black)),
+                .border(
+                    BorderStroke(
+                        dimensionResource(R.dimen.btn_horizontal_padding),
+                        Color.LightGray
+                    )
+                ),
         )
     }
 }
 
 @Composable
 fun RoundImage(
-    image: String,
-    modifier: Modifier = Modifier
+    image: String, modifier: Modifier = Modifier
 ) {
     Image(
         painter = rememberAsyncImagePainter(image),
@@ -83,11 +90,12 @@ fun RoundImage(
         modifier = modifier
             .aspectRatio(1f, matchHeightConstraintsFirst = true)
             .border(
-                width = 1.dp,
+                width = dimensionResource(R.dimen.padding_image),
                 color = Color.LightGray,
                 shape = CircleShape
             )
-            .padding(3.dp)
+
+            .padding(dimensionResource(R.dimen.btn_horizontal_padding))
             .clip(CircleShape)
     )
 }

@@ -3,6 +3,7 @@ package com.gholem.shopapp.di
 import android.content.Context
 import androidx.room.Room
 import com.gholem.shopapp.repository.storage.ShopAppDatabase
+import com.gholem.shopapp.repository.storage.dao.BasketDao
 import com.gholem.shopapp.repository.storage.dao.TemplateDao
 import dagger.Module
 import dagger.Provides
@@ -27,4 +28,9 @@ object StorageModule {
     @Provides
     fun provideTemplateDao(database: ShopAppDatabase): TemplateDao =
         database.templateDao()
+
+    @Provides
+    fun provideBasketDao(database: ShopAppDatabase): BasketDao =
+        database.basketDao()
+
 }

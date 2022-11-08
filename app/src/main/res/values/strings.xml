@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">ShopApp</string>
+    <string name="header">Header</string>
+    <string name="market">Market</string>
+    <string name="settings">Settings</string>
+    <string name="basket">Basket</string>
+    <string name="login">Login</string>
+    <string name="button_register">Haven\'t an account </string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="welcome">Welcome, </string>
+    <string name="sign_in_to_continue">Sign in to continue</string>
+    <string name="please_signup">Please signup</string>
+    <string name="register">Register</string>
+    <string name="password">Password</string>
+
 </resources>

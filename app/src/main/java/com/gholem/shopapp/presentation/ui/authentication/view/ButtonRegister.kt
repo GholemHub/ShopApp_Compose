@@ -8,14 +8,16 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import com.gholem.shopapp.R
 
 @Composable
 fun ButtonToRegister(onClick: () -> Unit) {
     Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.fillMaxWidth()) {
-        Text(text = "Haven't an account? ")
+        Text(text = stringResource(id = R.string.button_register))
         Text(
-            "Sign Up",
+            stringResource(id = R.string.sign_up),
             color = MaterialTheme.colors.primary,
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier.clickable(onClick = onClick)

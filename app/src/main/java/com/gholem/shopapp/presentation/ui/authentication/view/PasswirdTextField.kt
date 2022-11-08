@@ -5,30 +5,32 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
 import androidx.compose.runtime.*
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import com.gholem.shopapp.R
 
 @Composable
-fun EmailTextField() {
-    var emailText by remember { mutableStateOf("") }
+fun PasswordTextField() {
+    var passwordText by remember { mutableStateOf("") }
+
     OutlinedTextField(
-        value = emailText, onValueChange = { emailText = it },
-        label = { Text(text = "Email") },
+        value = passwordText,
+        onValueChange = { passwordText = it },
+        label = { Text(text = stringResource(id = R.string.password)) },
         singleLine = true,
         leadingIcon = {
             IconButton(onClick = { /*TODO*/ }) {
                 Icon(
-                    imageVector = Icons.Filled.Email,
-                    contentDescription = "Email Icon"
+                    painter = painterResource(id = R.drawable.ic_round_vpn_key_24),
+                    contentDescription = null
                 )
             }
         },
-
         keyboardOptions = KeyboardOptions(
-            keyboardType = KeyboardType.Email,
+            keyboardType = KeyboardType.Password,
             imeAction = ImeAction.Go
         ),
     )
