@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import javax.inject.Singleton
@@ -24,5 +25,11 @@ object FirebaseModule {
     @Singleton
     fun providerFirebaseStorageInstance(): StorageReference{
         return FirebaseStorage.getInstance().getReference("products")
+    }
+
+    @Provides
+    @Singleton
+    fun provideFireStoreInstance(): FirebaseFirestore {
+        return FirebaseFirestore.getInstance()
     }
 }

@@ -1,9 +1,9 @@
-package com.gholem.shopapp.presentation.ui.basket
+package com.gholem.shopapp.presentation.ui.product.basket
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gholem.shopapp.domain.model.ProductModel
-import com.gholem.shopapp.presentation.ui.basket.domain.GetBasketListUseCase
+import com.gholem.shopapp.presentation.ui.product.basket.domain.GetBasketListUseCase
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent

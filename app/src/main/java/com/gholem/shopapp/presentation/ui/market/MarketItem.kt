@@ -48,7 +48,7 @@ fun MarketItem(productModel: ProductModel, navController: NavHostController) {
                 RoundImage(
                     productModel.image, Modifier.size(dimensionResource(R.dimen.size_rounded_photo))
                 )
-                Text(text = productModel.name, color = Color.Black)
+                Text(text = productModel.title, color = Color.Black)
             }
             Text(
                 text = "Category: ${productModel.category}",

@@ -1,4 +1,4 @@
-package com.gholem.shopapp.presentation.ui.basket
+package com.gholem.shopapp.presentation.ui.product.basket
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import coil.compose.rememberAsyncImagePainter
 import com.gholem.shopapp.R
@@ -45,7 +44,7 @@ fun BasketImage(
                 .background(Color.White)
         )
         Text(
-            text = "Title: ${productModel.name}",
+            text = "Title: ${productModel.title}",
             modifier = Modifier.padding(start = dimensionResource(R.dimen.default_padding)),
             color = Color.Black
         )

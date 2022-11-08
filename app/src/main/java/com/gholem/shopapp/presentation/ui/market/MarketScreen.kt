@@ -7,6 +7,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import com.gholem.shopapp.domain.model.ProductModel
 import com.gholem.shopapp.domain.model.ProductModelData
 import com.gholem.shopapp.presentation.util.market.MarketItem
 import com.gholem.shopapp.repository.network.DataState
@@ -24,10 +25,11 @@ fun MarketScreen(navController: NavHostController) {
     }
 
     LazyColumn(modifier = Modifier.fillMaxSize()) {
-        if (dataStateProductList is DataState.Success<ProductModelData>) {
+        if (dataStateProductList2 is DataState.Success<List<ProductModel>>) {
             item {
-                i("dataStateProductList2 @@ ${dataStateProductList2}")
-                dataStateProductList.data.list.map {
+                /*i("dataStateProductList2 @@ ${dataStateProductList2}")
+                i("dataStateProductList2 @@ ${viewModel.products.value}")*/
+                dataStateProductList2.data.map {
                     MarketItem(it, navController)
                 }
             }

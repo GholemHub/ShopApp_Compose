@@ -15,7 +15,7 @@ class BasketEntity(
 ) {
     fun toModel(): ProductModel = ProductModel(
         id = id.toInt(),
-        name = name,
+        title = name,
         image = image,
         price = price,
         category = category,
@@ -27,7 +27,7 @@ class BasketEntity(
         fun from(productModel: ProductModel): BasketEntity =
             BasketEntity(
                 id = productModel.id.toLong(),
-                name = productModel.name,
+                name = productModel.title,
                 image = productModel.image,
                 price = productModel.price,
                 category = productModel.category,

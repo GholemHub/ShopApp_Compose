@@ -27,10 +27,6 @@ class MarketViewModel @Inject constructor(
 
 ) : ViewModel() {
 
-    fun getSession(result: (ProductModel?) -> Unit){
-        //getProvideProductRepository.getSession(result)
-    }
-
     var dataStateProductList: MutableState<DataState<ProductModelData>> =
         mutableStateOf(DataState.Loading)
 

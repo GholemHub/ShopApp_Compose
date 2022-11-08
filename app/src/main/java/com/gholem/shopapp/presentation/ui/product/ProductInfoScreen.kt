@@ -15,7 +15,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import com.gholem.shopapp.R
 import com.gholem.shopapp.domain.model.ProductModel
-import com.gholem.shopapp.domain.model.ProductModelData
 import com.gholem.shopapp.presentation.ui.product.ProductInfoViewModel
 import com.gholem.shopapp.presentation.util.market.RoundImage
 import com.gholem.shopapp.repository.network.DataState
@@ -25,15 +24,17 @@ fun ProductInfoScreen(id: Int) {
 
     val viewModel = hiltViewModel<ProductInfoViewModel>()
     var productModel: ProductModel
-    val dataStateProductList = viewModel.dataStateProductList.value
     val dataBasketList = viewModel.dataBasketList
+    val dataProductsList = viewModel.products.value
+
     LaunchedEffect(true) {
         viewModel.generateList()
         viewModel.getBasketList()
+        viewModel.getProducts(null)
     }
 
-    if (dataStateProductList is DataState.Success<ProductModelData>) {
-        productModel = dataStateProductList.data.list.first { it.id == id }
+    if (dataProductsList is DataState.Success<List<ProductModel>>) {
+        productModel = dataProductsList.data.first { it.id == id }
         Row(
             modifier = Modifier
                 .padding(dimensionResource(R.dimen.default_padding))
@@ -58,7 +59,7 @@ fun ProductInfoScreen(id: Int) {
                         productModel.image,
                         Modifier.size(dimensionResource(R.dimen.size_rounded_photo))
                     )
-                    Text(text = productModel.name, color = Color.Black)
+                    Text(text = productModel.title, color = Color.Black)
                 }
                 Text(
                     text = "Category: ${productModel.category}",

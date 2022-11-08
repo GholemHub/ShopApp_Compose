@@ -1,4 +1,4 @@
-package com.gholem.shopapp.presentation.ui.basket.domain
+package com.gholem.shopapp.presentation.ui.product.basket.domain
 
 import com.gholem.shopapp.arch.usecase.UseCase
 import com.gholem.shopapp.domain.model.ProductModel
