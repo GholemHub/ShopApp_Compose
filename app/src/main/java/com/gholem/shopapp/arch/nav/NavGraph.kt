@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.gholem.shopapp.presentation.features.RegistrationScreen
+import com.gholem.shopapp.presentation.ui.create_product.CreateProductScreen
 import com.gholem.shopapp.presentation.ui.market.BasketScreen
 import com.gholem.shopapp.presentation.ui.market.MarketScreen
 import com.gholem.shopapp.presentation.ui.market.SettingsScreen
@@ -43,13 +44,15 @@ fun SetupNavGraph(
         composable(route = ScreenNavigation.Settings.route) {
             SettingsScreen()
         }
+        composable(route = ScreenNavigation.CreateProduct.route) {
+            CreateProductScreen(navController)
+        }
         composable(
             route = ScreenNavigation.ProductInfo.route,
             arguments = listOf(navArgument("id") {
                 type = NavType.IntType
             })
         ) {
-            //i("THE ID @@ ${it.arguments?.getInt("id").toString()}")
             it.arguments?.let { it1 -> ProductInfoScreen(it1.getInt("id")) }
         }
     }

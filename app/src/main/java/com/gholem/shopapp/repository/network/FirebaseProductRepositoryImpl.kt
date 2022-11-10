@@ -1,7 +1,6 @@
 package com.gholem.shopapp.repository.network
 
 import com.gholem.shopapp.domain.model.ProductModel
-import com.gholem.shopapp.domain.model.ProductModelData
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.StorageReference
 import timber.log.Timber
@@ -9,8 +8,11 @@ import timber.log.Timber
 class FirebaseProductRepositoryImpl(
     val database: FirebaseFirestore,
     val storageReference: StorageReference
-) : FirebaseProductRepository{
-    override fun getProducts(product: ProductModel?, result: (DataState<List<ProductModel>>) -> Unit) {
+) : FirebaseProductRepository {
+    override fun getProducts(
+        product: ProductModel?,
+        result: (DataState<List<ProductModel>>) -> Unit
+    ) {
         database.collection("products")
             .get()
             .addOnSuccessListener {
@@ -31,12 +33,27 @@ class FirebaseProductRepositoryImpl(
                 }
             }
             .addOnFailureListener {
-            result.invoke(
-                DataState.Error(
-                    it
+                result.invoke(
+                    DataState.Error(
+                        it
+                    )
                 )
-            )
-        }
+            }
+    }
+
+    override fun addProduct(
+        product: ProductModel,
+        result: (DataState<List<ProductModel>>) -> Unit
+    ) {
+        database.collection("products").document()
+            .set(product)
+            .addOnSuccessListener {
+                result.invoke(DataState.Success(listOf(product)))
+            }
+            .addOnFailureListener {
+                result.invoke(DataState.Error(it))
+            }
+
     }
 
 }

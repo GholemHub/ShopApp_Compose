@@ -99,6 +99,11 @@ class MainActivity : AppCompatActivity() {
                                         id = "basket",
                                         title = "Basket",
                                         icon = painterResource(id = R.drawable.ic_baseline_shopping_basket_24)
+                                    ),
+                                    MenuItem(
+                                        id = "create_product",
+                                        title = "Create product",
+                                        icon = painterResource(id = R.drawable.ic_baseline_add_circle_outline_24)
                                     )
                                 ),
                                 onItemClick = {
@@ -106,6 +111,7 @@ class MainActivity : AppCompatActivity() {
                                         "market" -> navController.navigate(route = ScreenNavigation.Market.route)
                                         "settings" -> navController.navigate(route = ScreenNavigation.Settings.route)
                                         "basket" -> navController.navigate(route = ScreenNavigation.Basket.route)
+                                        "create_product" -> navController.navigate(route = ScreenNavigation.CreateProduct.route)
                                     }
                                     scope.launch { scaffoldState.drawerState.close() }
                                 }

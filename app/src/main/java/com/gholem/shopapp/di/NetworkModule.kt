@@ -1,12 +1,15 @@
 package com.gholem.shopapp.di
 
+import android.content.SharedPreferences
 import com.gholem.shopapp.repository.network.FirebaseProductRepository
 import com.gholem.shopapp.repository.network.FirebaseProductRepositoryImpl
 import com.gholem.shopapp.repository.network.ProductRepository
 import com.gholem.shopapp.repository.network.api.ProductApi
 import com.gholem.shopapp.repository.network.real.ProductNetworkRepository
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.StorageReference
+import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

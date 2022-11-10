@@ -1,5 +1,6 @@
 package com.gholem.shopapp.di
 
+import com.google.firebase.auth.FirebaseAuth
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,6 +26,12 @@ object FirebaseModule {
     @Singleton
     fun providerFirebaseStorageInstance(): StorageReference{
         return FirebaseStorage.getInstance().getReference("products")
+    }
+
+    @Provides
+    @Singleton
+    fun provideFirebaseAuthInstance(): FirebaseAuth {
+        return FirebaseAuth.getInstance()
     }
 
     @Provides
